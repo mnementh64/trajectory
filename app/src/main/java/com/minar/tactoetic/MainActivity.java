@@ -1,14 +1,14 @@
 package com.minar.tactoetic;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.util.TypedValue;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     // Programmatically get the accent color to use it in color transitions
     public int getAccent(Context context) {
         final TypedValue value = new TypedValue();
-        context.getTheme ().resolveAttribute (R.attr.colorAccent, value, true);
+        context.getTheme().resolveAttribute(R.attr.colorAccent, value, true);
         return value.data;
     }
 }
