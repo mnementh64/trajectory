@@ -1,0 +1,3 @@
+# trajectory
+
+Android simple game.
