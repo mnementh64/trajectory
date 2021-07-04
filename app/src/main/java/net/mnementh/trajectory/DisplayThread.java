@@ -1,6 +1,5 @@
 package net.mnementh.trajectory;
 
-import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.view.SurfaceHolder;
@@ -9,23 +8,23 @@ import android.view.SurfaceHolder;
  * Responsible for screen painting.
  */
 public class DisplayThread extends Thread {
-    SurfaceHolder _surfaceHolder;
-    Paint _backgroundPaint;
+    private final SurfaceHolder surfaceHolder;
+    private final Paint backgroundPaint;
 
     long _sleepTime;
 
     //Delay amount between screen refreshes
-    final long DELAY = 4;
+    final long DELAY_IN_MILLIS = 20;
 
-    boolean _isOnRun;
+    boolean isRunning;
 
     public DisplayThread(SurfaceHolder surfaceHolder) {
-        _surfaceHolder = surfaceHolder;
+        this.surfaceHolder = surfaceHolder;
 
         //black painter below to clear the screen before the game is rendered
-        _backgroundPaint = new Paint();
-        _backgroundPaint.setARGB(255, 0, 0, 0);
-        _isOnRun = true;
+        backgroundPaint = new Paint();
+        backgroundPaint.setARGB(255, 0, 0, 0);
+        isRunning = true;
     }
 
     /**
@@ -35,31 +34,30 @@ public class DisplayThread extends Thread {
     @Override
     public void run() {
         //Looping until the boolean is false
-        while (_isOnRun) {
+        while (isRunning) {
+
+            //Updates the game objects buisiness logic
+            GameEngine.getInstance().update(System.currentTimeMillis());
 
             //locking the canvas
-            Canvas canvas = _surfaceHolder.lockCanvas(null);
+            Canvas canvas = surfaceHolder.lockCanvas(null);
 
             if (canvas != null) {
-                //Clears the screen with black paint and draws object on the canvas
-                synchronized (_surfaceHolder) {
-                    canvas.drawRect(0, 0, canvas.getWidth(), canvas.getHeight(), _backgroundPaint);
+                synchronized (surfaceHolder) {
+                    // clear background
+                    canvas.drawRect(0, 0, canvas.getWidth(), canvas.getHeight(), backgroundPaint);
 
-                    Paint color = new Paint();
-                    color.setARGB(255, 255, 0, 0);
-                    canvas.drawRect(100, 100, 50, 50, color);
-                    canvas.drawRect(200, 200, 50, 50, color);
-                    canvas.drawRect(300, 300, 50, 50, color);
-//                    AppConstants.GetEngine().Draw(canvas);
+                    // render game components
+                    GameEngine.getInstance().draw(canvas);
                 }
 
                 //unlocking the Canvas
-                _surfaceHolder.unlockCanvasAndPost(canvas);
+                surfaceHolder.unlockCanvasAndPost(canvas);
             }
 
             //delay time
             try {
-                Thread.sleep(DELAY);
+                Thread.sleep(DELAY_IN_MILLIS);
             } catch (InterruptedException ex) {
                 //TODO: Log
             }
@@ -69,14 +67,14 @@ public class DisplayThread extends Thread {
     /**
      * @return whether the thread is running
      */
-    public boolean IsRunning() {
-        return _isOnRun;
+    public boolean isRunning() {
+        return isRunning;
     }
 
     /**
      * Sets the thread state, false = stoped, true = running
      **/
-    public void SetIsRunning(boolean state) {
-        _isOnRun = state;
+    public void setIsRunning(boolean state) {
+        isRunning = state;
     }
 }

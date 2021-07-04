@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 import androidx.navigation.Navigation;
 
 
-public class Game extends androidx.fragment.app.Fragment {
+public class GameView extends androidx.fragment.app.Fragment {
     private DisplayThread displayThread;
 
     @Override
@@ -24,7 +24,7 @@ public class Game extends androidx.fragment.app.Fragment {
         canvas.setFocusable(true);
 
         //Starts the display thread
-        if (displayThread == null || !displayThread.IsRunning()) {
+        if (displayThread == null || !displayThread.isRunning()) {
             displayThread = new DisplayThread(canvas.getHolder());
             displayThread.start();
         } else {
@@ -49,7 +49,8 @@ public class Game extends androidx.fragment.app.Fragment {
     @Override
     public void onDestroyView() {
         //Stop the display thread
-        displayThread.SetIsRunning(false);
+        displayThread.setIsRunning(false);
         super.onDestroyView();
     }
+
 }
