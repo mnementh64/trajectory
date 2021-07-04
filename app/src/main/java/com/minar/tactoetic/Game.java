@@ -18,7 +18,7 @@ public class Game extends androidx.fragment.app.Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_game, container, false);
         // Get the placeholder where the correct layout will be inflated
-        RelativeLayout gridSection = v.findViewById(R.id.tttSection);
+        RelativeLayout gridSection = v.findViewById(R.id.canvasSection);
         inflater.inflate(R.layout.ttt_surface_view, gridSection);
         SurfaceView canvas = v.findViewById(R.id.surfaceView);
         canvas.setFocusable(true);

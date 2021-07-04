@@ -48,6 +48,8 @@ public class DisplayThread extends Thread {
                     Paint color = new Paint();
                     color.setARGB(255, 255, 0, 0);
                     canvas.drawRect(100, 100, 50, 50, color);
+                    canvas.drawRect(200, 200, 50, 50, color);
+                    canvas.drawRect(300, 300, 50, 50, color);
 //                    AppConstants.GetEngine().Draw(canvas);
                 }
 

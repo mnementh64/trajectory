@@ -25,9 +25,9 @@
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5" />
 
         <RelativeLayout
-            android:id="@+id/tttSection"
+            android:id="@+id/canvasSection"
             android:layout_width="wrap_content"
-            android:layout_height="400dp"
+            android:layout_height="500dp"
             android:layout_margin="@dimen/linear_vertical_margin"
             app:layout_constraintHeight_percent="0.5"
             android:gravity="center_horizontal"
@@ -47,7 +47,7 @@
             android:gravity="center_horizontal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tttSection"
+            app:layout_constraintTop_toBottomOf="@id/canvasSection"
             app:layout_constraintBottom_toTopOf="@id/newGameBtn"
             android:text="@string/result_placeholder"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
@@ -66,7 +66,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toTopOf="@id/settingsBtn"
-            app:layout_constraintTop_toBottomOf="@id/tttSection"
+            app:layout_constraintTop_toBottomOf="@id/canvasSection"
             style="@style/Widget.MaterialComponents.Button"
             app:rippleColor="?colorAccent" />
 
