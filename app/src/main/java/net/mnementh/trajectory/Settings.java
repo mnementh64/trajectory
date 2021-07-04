@@ -1,4 +1,4 @@
-package com.minar.tactoetic;
+package net.mnementh.trajectory;
 
 
 import android.app.Activity;

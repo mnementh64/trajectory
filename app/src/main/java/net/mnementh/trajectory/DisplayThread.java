@@ -1,4 +1,4 @@
-package com.minar.tactoetic;
+package net.mnementh.trajectory;
 
 import android.content.Context;
 import android.graphics.Canvas;

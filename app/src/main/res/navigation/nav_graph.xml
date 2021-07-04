@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/game"
-        android:name="com.minar.tactoetic.Game"
+        android:name="net.mnementh.trajectory.Game"
         android:label="Game"
         tools:layout="@layout/fragment_game">
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/settings"
-        android:name="com.minar.tactoetic.Settings"
+        android:name="net.mnementh.trajectory.Settings"
         android:label="Settings"
         tools:layout="@layout/fragment_settings" />
 </navigation>

@@ -1,4 +1,4 @@
-package com.minar.tactoetic;
+package net.mnementh.trajectory;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.minar.tactoetic", appContext.getPackageName());
+        assertEquals("net.mnementh.trajectory", appContext.getPackageName());
     }
 }
